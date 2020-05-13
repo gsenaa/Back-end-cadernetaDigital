@@ -8,7 +8,7 @@ const routes = new Router();
 //Rotas do usuarios
 routes.get('/users', UserController.get);
 
-routes.get('/users/:id', UserController.getUser);
+routes.get('/users/get/:id', UserController.getUser);
 
 routes.post('/users/post', UserController.post);
 
@@ -21,7 +21,7 @@ routes.delete('/users/delete/:id', UserController.delete);
 //Rotas doacao
 routes.get('/doacoes', DoacaoController.get);
 
-routes.get('/doacoes/:id', DoacaoController.getId);
+routes.get('/doacoes/get/:id', DoacaoController.getId);
 
 routes.post('/doacoes/post', DoacaoController.post);
 //////////////////////////////////////////////////////////
