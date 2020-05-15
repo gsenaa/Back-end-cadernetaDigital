@@ -24,6 +24,10 @@ routes.get('/doacoes', DoacaoController.get);
 routes.get('/doacoes/get/:id', DoacaoController.getId);
 
 routes.post('/doacoes/post', DoacaoController.post);
+
+routes.put('/doacoes/update/:id', DoacaoController.put);
+
+routes.delete('/doacoes/delete/:id', DoacaoController.delete)
 //////////////////////////////////////////////////////////
 
 export default routes;

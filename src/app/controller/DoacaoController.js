@@ -39,6 +39,32 @@ class DoacaoController {
         return res.json();
     }
 
+    async put(req, res) {
+        const { id } = req.params;
+
+        const { date } = req.body;
+        const { local } = req.body;
+        const { qntBolsas } = req.body;
+    
+        const doc = await Doacao.findById({_id: id});
+
+        doc.date = date;
+        doc.local = local;
+        doc.qntBolsas = qntBolsas;
+
+        await doc.save();
+   
+        return res.json(doc);
+    }
+
+    async delete(req, res) {
+        const { id } = req.params;
+    
+        Doacao.findByIdAndRemove({_id: id}, { useFindAndModify: false }).exec();
+
+        return res.status(200).send();
+    }
+
     
 }
 
