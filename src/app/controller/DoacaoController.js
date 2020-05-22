@@ -5,7 +5,7 @@ class DoacaoController {
     async get(req, res){
         Doacao.find()
         .then((doc)=>{
-            return res.json(doc);
+            return res.json({doacao: doc});
         })
         .catch((err)=>{
             console.log(err);
