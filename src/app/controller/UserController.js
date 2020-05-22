@@ -5,7 +5,7 @@ class UserController {
     async get(req, res){
         User.find()
         .then((doc)=>{
-            return res.json(doc);
+            return res.json({usuario: doc});
         })
         .catch((err)=>{
             console.log(err);
@@ -17,7 +17,7 @@ class UserController {
         
         User.find({_id: id})
         .then((doc)=>{
-            return res.json(doc);
+            return res.json({usuario: doc});
         })
         .catch((err)=>{
             console.log(err);

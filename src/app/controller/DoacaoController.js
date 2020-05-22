@@ -17,7 +17,7 @@ class DoacaoController {
 
         Doacao.findById({_id: id})
         .then((doc)=>{
-            return res.json(doc);
+            return res.json({doacao: doc});
         })
         .catch((err)=>{
             console.log(err);
