@@ -60,9 +60,12 @@ class DoacaoController {
     async delete(req, res) {
         const { id } = req.params;
     
-        Doacao.findByIdAndRemove({_id: id}, { useFindAndModify: false }).exec();
-
-        return res.status(200).send();
+        Doacao.findByIdAndRemove({_id: id}, { useFindAndModify: false }).then((doc)=>{
+            return res.json({message: 'Deletado'});
+        })
+        .catch((err)=>{
+            return res.json({message: 'not found'});
+        });
     }
 
     
