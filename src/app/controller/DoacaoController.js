@@ -62,7 +62,7 @@ class DoacaoController {
     async delete(req, res) {
         const { id } = req.params;
     
-        Doacao.findOneAndDelete({id: id}, { useFindAndModify: false }).then((doc)=>{
+        Doacao.findByIdAndDelete({_id: id}, { useFindAndModify: false }).then((doc)=>{
             return res.json({message: 'Deletado'});
         })
         .catch((err)=>{
