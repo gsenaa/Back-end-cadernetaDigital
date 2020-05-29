@@ -26,11 +26,13 @@ class DoacaoController {
     
     async post(req, res){
         
+        const {id} = req.body;
         const {date} = req.body;
         const {local} = req.body;
         const {qntBolsas} = req.body;
 
         const doacao = await Doacao.create({
+            id: id,
             date: date,
             local: local,
             qntBolsas: qntBolsas
@@ -60,7 +62,7 @@ class DoacaoController {
     async delete(req, res) {
         const { id } = req.params;
     
-        Doacao.findByIdAndRemove({_id: id}, { useFindAndModify: false }).then((doc)=>{
+        Doacao.findOneAndDelete({id: id}, { useFindAndModify: false }).then((doc)=>{
             return res.json({message: 'Deletado'});
         })
         .catch((err)=>{

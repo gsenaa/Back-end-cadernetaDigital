@@ -65,6 +65,7 @@ class ExameController {
             return res.json({message: 'Deletado'});
         })
         .catch((err)=>{
+            console.log(err);
             return res.json({message: 'not found'});
         });
     }
