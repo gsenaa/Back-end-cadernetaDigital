@@ -38,7 +38,10 @@ class DoacaoController {
             qntBolsas: qntBolsas
         })
         
-        return res.json();
+        return res.json({id: id,
+            date: date,
+            local: local,
+            qntBolsas: qntBolsas});
     }
 
     async put(req, res) {
@@ -66,6 +69,7 @@ class DoacaoController {
             return res.json({message: 'Deletado'});
         })
         .catch((err)=>{
+            console.log(err);
             return res.json({message: 'not found'});
         });
     }
